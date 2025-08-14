@@ -11,21 +11,46 @@ if (y) y.textContent = new Date().getFullYear();
 
 <script>
   (function () {
-    const btn = document.getElementById('menu-toggle');
-    const panel = document.getElementById('mobile-menu');
+    function qs(id) { return document.getElementById(id); }
+    const btn = qs('menu-toggle');
+    const panel = qs('mobile-menu');
+
     if (!btn || !panel) return;
 
-    btn.addEventListener('click', () => {
-      const open = panel.classList.toggle('hidden') === false; // po toggle hidden zwraca bool
-      btn.setAttribute('aria-expanded', String(open));
+    // helpery
+    const openMenu = () => {
+      panel.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      document.documentElement.classList.add('overflow-hidden'); // blokuje scroll w tle (iOS)
+    };
+    const closeMenu = () => {
+      panel.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      document.documentElement.classList.remove('overflow-hidden');
+    };
+    const toggleMenu = () => {
+      panel.classList.contains('hidden') ? openMenu() : closeMenu();
+    };
+
+    // klik w hamburgera
+    btn.addEventListener('click', toggleMenu, { passive: true });
+
+    // klik w link w panelu — zamknij
+    panel.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeMenu, { passive: true });
     });
 
-    // schowaj panel po kliknięciu w link (i zrób płynny scroll jeśli masz nasz skrypt)
-    panel.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', () => {
-        panel.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
+    // klik poza panelem — zamknij
+    document.addEventListener('click', (e) => {
+      if (panel.classList.contains('hidden')) return;
+      const insidePanel = e.target.closest('#mobile-menu');
+      const isButton    = e.target.closest('#menu-toggle');
+      if (!insidePanel && !isButton) closeMenu();
+    }, { passive: true });
+
+    // zabezpieczenie: jeśli układ zmieni się na desktop, schowaj panel
+    const mq = window.matchMedia('(min-width: 768px)');
+    mq.addEventListener ? mq.addEventListener('change', () => mq.matches && closeMenu())
+                        : mq.addListener(() => mq.matches && closeMenu());
   })();
 </script>
