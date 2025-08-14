@@ -8,4 +8,3 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 const y = document.getElementById('year');
 if (y) y.textContent = new Date().getFullYear();
-
