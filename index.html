@@ -7,8 +7,15 @@
   <meta name="description" content="LeadOfficial — official site with merch store.">
 
   <!-- Google Fonts -->
+  <title>LeadOfficialSite</title>
+  <meta name="description" content="LeadOfficial — official site with merch store.">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Black+Ops+One&family=Rock+Salt&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Black+Ops+One&family=Rock+Salt&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
@@ -21,11 +28,21 @@
           fontFamily: { 
             sans: ['"Bebas Neue"', 'sans-serif'] 
           },
+          /* Zmień tu na 'Bebas Neue', 'Anton', 'Black Ops One' lub 'Rock Salt' */
+          fontFamily: { 
+            sans: ['"Bebas Neue"', 'sans-serif'] 
+          },
           boxShadow: { elev: '0 10px 30px rgba(0,0,0,.35)' }
         }
       }
     }
   </script>
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="bg-black text-zinc-100 font-sans antialiased">
+
+  <!-- Custom CSS -->
 
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -98,7 +115,71 @@
     </nav>
   </div>
 </header>
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/50 border-b border-white/5">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav class="flex h-16 items-center justify-between">
+      <!-- Social icons (left) -->
+      <div class="flex items-center gap-4">
+        <!-- Instagram -->
+        <a class="opacity-80 hover:opacity-100" href="https://instagram.com/LINK_DO_INSTAGRAM" target="_blank" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm0 2a3 3 0 1 1-.001 6.001A3 3 0 0 1 12 9zm4.5-3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+          </svg>
+        </a>
 
+        <!-- TikTok -->
+        <a class="opacity-80 hover:opacity-100" href="https://tiktok.com/@LINK_DO_TIKTOK" target="_blank" aria-label="TikTok">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="h-6 w-6" fill="currentColor">
+            <path d="M223.999 95.057v34.636c-18.743-.059-36.332-6.07-51.308-16.291l.019 67.408c0 33.745-27.34 61.19-61.085 61.19-33.745 0-61.085-27.445-61.085-61.19 0-33.744 27.34-61.084 61.085-61.084 3.495 0 6.91.3 10.222.87v34.85a26.563 26.563 0 0 0-10.222-2.086c-14.73 0-26.684 11.954-26.684 26.684 0 14.73 11.954 26.684 26.684 26.684 14.625 0 26.49-11.768 26.674-26.365l-.066-186.264h35.631c2.942 25.844 23.493 46.394 49.337 49.336z"/>
+          </svg>
+        </a>
+
+        <!-- YouTube -->
+        <a class="opacity-80 hover:opacity-100" href="https://youtube.com/@LINK_DO_YOUTUBE" target="_blank" aria-label="YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.7-.8-1.5-.8-1.9-.9C17.7 2.7 12 2.7 12 2.7S6.3 2.7 3.2 3c-.4 0-1.2.1-1.9.9-.6.7-.8 2.3-.8 2.3S0 8.1 0 10v1.9c0 1.9.2 3.8.2 3.8s.2 1.6.8 2.3c.7.8 1.6.8 2 1 1.5.1 6.3.3 8.8.3s7.3 0 8.8-.3c.4 0 1.3 0 2-1 .6-.7.8-2.3.8-2.3s.2-1.9.2-3.8V10c0-1.9-.2-3.8-.2-3.8zM9.7 13.9V7.7l6.4 3.1-6.4 3.1z"/>
+          </svg>
+        </a>
+
+        <!-- Spotify -->
+        <a class="opacity-80 hover:opacity-100" href="https://open.spotify.com/artist/LINK_DO_SPOTIFY" target="_blank" aria-label="Spotify">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0a12 12 0 1012 12A12.013 12.013 0 0012 0zm5.487 17.325a.747.747 0 01-1.03.248c-2.822-1.73-6.385-2.12-10.588-1.158a.75.75 0 11-.331-1.463c4.583-1.039 8.557-.584 11.682 1.35a.748.748 0 01.267 1.023zm1.47-3.17a.935.935 0 01-1.28.31c-3.23-1.977-8.144-2.552-11.946-1.389a.936.936 0 11-.556-1.788c4.29-1.333 9.705-.688 13.38 1.508a.934.934 0 01.402 1.359zm.127-3.317c-3.84-2.284-10.17-2.495-13.815-1.383a1.125 1.125 0 11-.66-2.16c4.274-1.32 11.287-1.05 15.662 1.548a1.124 1.124 0 11-1.187 1.995z"/>
+          </svg>
+        </a>
+
+        <!-- Apple Music -->
+        <a class="opacity-80 hover:opacity-100" href="https://music.apple.com/artist/LINK_DO_APPLE_MUSIC" target="_blank" aria-label="Apple Music">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 3v12.8a3.7 3.7 0 1 1-7.4 0 3.7 3.7 0 0 1 3.7-3.7c.5 0 1 .1 1.4.3V7.4l-8 1.7v9.7a3.7 3.7 0 1 1-7.4 0 3.7 3.7 0 0 1 3.7-3.7c.5 0 1 .1 1.4.3V4.2c0-.5.3-.9.8-1l8.7-1.8c.6-.1 1.1.3 1.1.9Z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Menu (center) -->
+      <div class="hidden md:flex items-center gap-6 text-lg text-zinc-300">
+        <a href="#store" class="hover:text-white">Store</a>
+        <a href="#tour" class="hover:text-white">Tour</a>
+        <a href="#newsletter" class="hover:text-white">Newsletter</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+        <a href="#contact" class="hover:text-white">EPK</a>
+      </div>
+
+      <!-- CTA (right) -->
+      <div class="flex items-center gap-2">
+        <a href="https://lead-official.myshopify.com" class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-medium hover:opacity-90 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          Visit Store
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+ <!-- HERO -->
  <!-- HERO -->
 <section id="top" class="relative overflow-hidden">
   <div class="absolute inset-0 hero-bg pointer-events-none"></div>
@@ -108,7 +189,7 @@
       <img src="assets/photo.png" alt="Background photo"
            class="absolute inset-0 w-full h-full object-cover rounded-2xl z-0">
       <!-- Logo -->
-      <img src="assets/logo_white.svg" alt="LeadOfficial logo"
+      <img src="assets/logo/logo_white.svg" alt="LeadOfficial logo"
            class="relative z-10 w-[520px] max-w-full mt-4 ml-4">
     </div>
   </div>
@@ -120,7 +201,36 @@
     <div class="mb-8">
       <h2 class="text-3xl font-bold">Store</h2>
       <p class="text-zinc-300">Official merch.</p>
+  <!-- STORE -->
+<section id="store" class="py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <h2 class="text-3xl font-bold">Store</h2>
+      <p class="text-zinc-300">Official merch.</p>
     </div>
+
+    <div class="grid gap-12 lg:grid-cols-2">
+
+      <!-- Product 1 -->
+      <article class="text-center">
+  <div class="aspect-video">
+    <!-- PNG -->
+    <img src="assets/products/tshirt-black.png" alt="LEAD Tee — Black"
+         class="w-full h-full object-contain select-none pointer-events-none" />
+  </div>
+  <div class="mt-4 space-y-2">
+    <div class="text-xl font-medium">$35.00</div>
+    <a href="https://YOUR-SHOPIFY-URL/products/tshirt-black" target="_blank" rel="noopener"
+   class="inline-flex items-center gap-2 rounded-2xl bg-white text-black
+          px-4 py-2 text-sm font-medium leading-none
+          hover:opacity-90 transition subpixel-antialiased">
+  Buy now
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+  </svg>
+</a>
+  </div>
+</article>
 
     <div class="grid gap-12 lg:grid-cols-2">
 
@@ -165,7 +275,47 @@
 </a>
   </div>
 </article>
+      <!-- Product 2 -->
+      <article class="text-center">
+  <div class="aspect-video">
+    <!-- PNG -->
+    <img src="assets/products/tshirt-black.png" alt="LEAD Tee — Black"
+         class="w-full h-full object-contain select-none pointer-events-none" />
+  </div>
+  <div class="mt-4 space-y-2">
+    <div class="text-xl font-medium">$35.00</div>
+    <a href="https://YOUR-SHOPIFY-URL/products/tshirt-black" target="_blank" rel="noopener"
+   class="inline-flex items-center gap-2 rounded-2xl bg-white text-black
+          px-4 py-2 text-sm font-medium leading-none
+          hover:opacity-90 transition subpixel-antialiased">
+  Buy now
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+  </svg>
+</a>
+  </div>
+</article>
 
+      <!-- Product 3 -->
+      <article class="text-center">
+  <div class="aspect-video">
+    <!-- PNG -->
+    <img src="assets/products/tshirt-black.png" alt="LEAD Tee — Black"
+         class="w-full h-full object-contain select-none pointer-events-none" />
+  </div>
+  <div class="mt-4 space-y-2">
+    <div class="text-xl font-medium">$35.00</div>
+    <a href="https://YOUR-SHOPIFY-URL/products/tshirt-black" target="_blank" rel="noopener"
+   class="inline-flex items-center gap-2 rounded-2xl bg-white text-black
+          px-4 py-2 text-sm font-medium leading-none
+          hover:opacity-90 transition subpixel-antialiased">
+  Buy now
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+  </svg>
+</a>
+  </div>
+</article>
       <!-- Product 3 -->
       <article class="text-center">
   <div class="aspect-video">
@@ -210,12 +360,36 @@
     </div>
   </div>
 </section>
+      <!-- Product 4 -->
+      <article class="text-center">
+  <div class="aspect-video">
+    <!-- PNG -->
+    <img src="assets/products/tshirt-black.png" alt="LEAD Tee — Black"
+         class="w-full h-full object-contain select-none pointer-events-none" />
+  </div>
+  <div class="mt-4 space-y-2">
+    <div class="text-xl font-medium">$35.00</div>
+    <a href="https://YOUR-SHOPIFY-URL/products/tshirt-black" target="_blank" rel="noopener"
+   class="inline-flex items-center gap-2 rounded-2xl bg-white text-black
+          px-4 py-2 text-sm font-medium leading-none
+          hover:opacity-90 transition subpixel-antialiased">
+  Buy now
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+  </svg>
+</a>
+  </div>
+</article>
+    </div>
+  </div>
+</section>
 
   <!-- TOUR -->
   <section id="tour" class="py-20 bg-white/5">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
         <h2 class="text-3xl font-bold">Tour</h2>
+        <p class="text-zinc-300">Stay tuned for upcoming shows.</p>
         <p class="text-zinc-300">Stay tuned for upcoming shows.</p>
       </div>
       <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -225,12 +399,14 @@
               <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
             </svg>
             15 Aug 2026
+            15 Aug 2026
           </div>
           <div class="p-6 text-sm text-zinc-300 space-y-2">
             <div class="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z"/><circle cx="12" cy="11" r="2"/>
               </svg>
+              Venue to be announced
               Venue to be announced
             </div>
             <a href="#" class="inline-flex items-center rounded-2xl bg-white text-black px-3 py-2 text-sm font-medium hover:opacity-90 transition">Tickets
@@ -247,12 +423,14 @@
               <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
             </svg>
             05 Sep 2026
+            05 Sep 2026
           </div>
           <div class="p-6 text-sm text-zinc-300 space-y-2">
             <div class="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z"/><circle cx="12" cy="11" r="2"/>
               </svg>
+              Venue to be announced
               Venue to be announced
             </div>
             <a href="#" class="inline-flex items-center rounded-2xl bg-white text-black px-3 py-2 text-sm font-medium hover:opacity-90 transition">Tickets
@@ -269,12 +447,14 @@
               <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
             </svg>
             10 Oct 2025
+            10 Oct 2025
           </div>
           <div class="p-6 text-sm text-zinc-300 space-y-2">
             <div class="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z"/><circle cx="12" cy="11" r="2"/>
               </svg>
+              Venue to be announced
               Venue to be announced
             </div>
             <a href="#" class="inline-flex items-center rounded-2xl bg-white text-black px-3 py-2 text-sm font-medium hover:opacity-90 transition">Tickets
@@ -293,10 +473,15 @@
     <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl font-bold mb-3">Newsletter</h2>
       <p class="text-zinc-300 mb-6">Sign up for updates from LEAD</p>
+      <h2 class="text-3xl font-bold mb-3">Newsletter</h2>
+      <p class="text-zinc-300 mb-6">Sign up for updates from LEAD</p>
       <form class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 max-w-xl mx-auto" onsubmit="return false">
         <input type="email" required placeholder="Your e‑mail" class="rounded-2xl bg-white/5 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/20">
         <button type="submit" class="rounded-2xl bg-white text-black px-5 py-3 text-sm font-semibold hover:opacity-90 transition">Join</button>
+        <input type="email" required placeholder="Your e‑mail" class="rounded-2xl bg-white/5 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/20">
+        <button type="submit" class="rounded-2xl bg-white text-black px-5 py-3 text-sm font-semibold hover:opacity-90 transition">Join</button>
       </form>
+      
       
     </div>
   </section>
@@ -318,11 +503,16 @@
           </p>
           <div class="flex items-center gap-4 pt-2">
 
+
             <a class="opacity-80 hover:opacity-100" href="#" target="_blank" aria-label="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
               </svg>
             </a>
+            <a class="opacity-80 hover:opacity-100" href="#" target="_blank" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="h-6 w-6" fill="currentColor">
+                <path d="M223.999 95.057v34.636c-18.743-.059-36.332-6.07-51.308-16.291l.019 67.408c0 33.745-27.34 61.19-61.085 61.19-33.745 0-61.085-27.445-61.085-61.19 0-33.744 27.34-61.084 61.085-61.084 3.495 0 6.91.3 10.222.87v34.85a26.563 26.563 0 0 0-10.222-2.086c-14.73 0-26.684 11.954-26.684 26.684 0 14.73 11.954 26.684 26.684 26.684 14.625 0 26.49-11.768 26.674-26.365l-.066-186.264h35.631c2.942 25.844 23.493 46.394 49.337 49.336z"/>
+              </svg>
             <a class="opacity-80 hover:opacity-100" href="#" target="_blank" aria-label="TikTok">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="h-6 w-6" fill="currentColor">
                 <path d="M223.999 95.057v34.636c-18.743-.059-36.332-6.07-51.308-16.291l.019 67.408c0 33.745-27.34 61.19-61.085 61.19-33.745 0-61.085-27.445-61.085-61.19 0-33.744 27.34-61.084 61.085-61.084 3.495 0 6.91.3 10.222.87v34.85a26.563 26.563 0 0 0-10.222-2.086c-14.73 0-26.684 11.954-26.684 26.684 0 14.73 11.954 26.684 26.684 26.684 14.625 0 26.49-11.768 26.674-26.365l-.066-186.264h35.631c2.942 25.844 23.493 46.394 49.337 49.336z"/>
@@ -342,7 +532,9 @@
         </div>
         <div class="p-6 space-y-3 text-zinc-300">
           <p>Download the official EPK: bio, promo photos, logos, technical info.</p>
+          <p>Download the official EPK: bio, promo photos, logos, technical info.</p>
           <a href="#" class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-medium hover:opacity-90 transition">
+            Open EPK
             Open EPK
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 10v11H3V3h11"/>
