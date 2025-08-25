@@ -329,34 +329,73 @@
     </div>
   </section>
 
-  <!-- NEWSLETTER -->
-<section id="newsletter" class="py-20">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="bg-black/60 border border-white/10 rounded-2xl">
-      <div class="p-6 border-b border-white/10">
-        <h2 class="text-lg font-semibold">Newsletter</h2>
-        <p class="text-zinc-300">Sign up for updates from LEAD</p>
-      </div>
+  <!-- NEWSLETTER (custom UI + MailerLite submit) -->
+  <section id="newsletter" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="bg-black/60 border border-white/10 rounded-2xl">
+        <div class="p-6 border-b border-white/10">
+          <h2 class="text-lg font-semibold">Newsletter</h2>
+          <p class="text-zinc-300">Sign up for updates from LEAD</p>
+        </div>
 
-      <div class="p-6">
-        <form class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center"
-              action="#" method="post">
-          <input
-            type="email"
-            placeholder="Email"
-            class="flex-1 rounded-2xl bg-white text-black px-4 py-3
-                   placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-white/20" />
+        <div class="p-6">
+          <!-- form: posts to MailerLite JSONP endpoint in a hidden iframe (no redirect) -->
+          <form id="ml-lite"
+                action="https://assets.mailerlite.com/jsonp/1756484/forms/163717944065393805/subscribe"
+                method="post"
+                target="ml_iframe"
+                class="mx-auto max-w-5xl flex items-stretch gap-4">
 
-          <button type="submit"
-                  class="inline-flex items-center justify-center rounded-2xl bg-white text-black
-                         px-5 py-3 text-sm font-medium leading-none hover:opacity-90 transition">
-            JOIN
-          </button>
-        </form>
+            <!-- email -->
+            <input
+              type="email"
+              name="fields[email]"
+              required
+              placeholder="YOUR E-MAIL"
+              autocomplete="email"
+              class="flex-1 rounded-[9999px] bg-white/5 border border-white/10 px-6 md:px-8
+                     h-14 md:h-16 text-xl md:text-2xl placeholder-white/60 uppercase tracking-wide
+                     focus:outline-none focus:ring-2 focus:ring-white/20">
+
+            <!-- ML required hidden flags -->
+            <input type="hidden" name="ml-submit" value="1">
+            <input type="hidden" name="anticsrf" value="true">
+
+            <!-- submit -->
+            <button type="submit"
+                    class="inline-flex items-center justify-center rounded-[9999px] bg-white text-black
+                           px-6 md:px-8 h-14 md:h-16 text-base md:text-lg font-normal leading-none
+                           subpixel-antialiased hover:opacity-90 transition">
+              JOIN
+            </button>
+          </form>
+
+          <!-- hidden iframe target (prevents redirect) -->
+          <iframe name="ml_iframe" class="hidden"></iframe>
+
+          <!-- success message styled like the screenshot -->
+          <div id="ml-success" class="hidden pt-10">
+            <h3 class="text-4xl md:text-5xl font-bold">Thank you!</h3>
+            <p class="mt-3 text-xl md:text-2xl text-zinc-300">
+              You have successfully joined our subscriber list.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- MailerLite webforms runtime + success hook -->
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js" type="text/javascript"></script>
+  <script>
+    // This callback name follows ML's convention and will be called on success.
+    // If your form id changes in ML, rename the function to ml_webform_success_<id>.
+    function ml_webform_success_30040553() {
+      var form = document.getElementById('ml-lite');
+      var ok = document.getElementById('ml-success');
+      if (form && ok) { form.classList.add('hidden'); ok.classList.remove('hidden'); }
+    }
+  </script>
 
  <!-- CONTACT + EPK -->
 <section class="py-20 bg-white/5">
