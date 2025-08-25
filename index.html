@@ -383,17 +383,76 @@
       </div>
       <div class="p-6 space-y-3 text-zinc-300">
         <p>Download the official EPK: bio, promo photos, logos, technical info.</p>
-        <a href="#" class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-medium hover:opacity-90 transition">
+        
+        <!-- PRZYCISK otwierający modal -->
+        <button type="button" id="open-epk-modal"
+          class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-semibold hover:opacity-90 transition">
           Open EPK
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 10v11H3V3h11"/>
           </svg>
-        </a>
+        </button>
+
+        <!-- Fallback: mailto (pokazany tylko gdy JS nie zadziała) -->
+        <noscript>
+          <a href="mailto:contact@leadofficial.com?subject=EPK%20Request&body=Hi!%20I'd%20love%20to%20receive%20your%20EPK.%20My%20email%3A%20"
+             class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-semibold hover:opacity-90 transition">
+            Request EPK via email
+          </a>
+        </noscript>
+
       </div>
     </div>
-
   </div>
 </section>
+
+<!-- MODAL: EPK Request -->
+<div id="epk-modal" class="fixed inset-0 z-[80] hidden">
+  <!-- backdrop -->
+  <div id="epk-backdrop" class="absolute inset-0 bg-black/70"></div>
+
+  <!-- dialog -->
+  <div class="relative mx-auto max-w-md w-[92%] mt-24 rounded-2xl bg-zinc-900 border border-white/10 shadow-xl">
+    <div class="p-5 border-b border-white/10 flex items-center justify-between">
+      <h4 class="font-semibold">Request EPK</h4>
+      <button id="close-epk-modal" class="rounded-xl p-2 hover:bg-white/10" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <form id="epk-form" class="p-5 space-y-3">
+      <label class="block text-sm text-zinc-300">
+        Your email
+        <input type="email" name="email" required
+               class="mt-1 w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/20"
+               placeholder="you@example.com">
+      </label>
+
+      <label class="block text-sm text-zinc-300">
+        Optional message
+        <textarea name="message" rows="3"
+                  class="mt-1 w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/20"
+                  placeholder="Tell me briefly who you are / outlet, etc."></textarea>
+      </label>
+
+      <!-- Honeypot (anty-spam) -->
+      <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+
+      <div class="flex items-center justify-between pt-2">
+        <button type="button" id="cancel-epk" class="px-4 py-2 rounded-2xl border border-white/10 hover:bg-white/5">Cancel</button>
+        <button type="submit" id="submit-epk"
+                class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-semibold hover:opacity-90 transition">
+          Send request
+        </button>
+      </div>
+
+      <!-- komunikaty -->
+      <p id="epk-status" class="text-sm text-zinc-400 hidden"></p>
+    </form>
+  </div>
+</div>
 
   <!-- FOOTER -->
   <footer class="py-10 border-t border-white/10">
