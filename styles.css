@@ -22,3 +22,43 @@
   width: auto;        /* dopasuje szerokość automatycznie */
 }
 
+/* MailerLite - dopasowanie do stylu strony */
+.ml-embedded form{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:12px;
+  max-width:28rem;
+  margin:0 auto;
+}
+@media (max-width:640px){
+  .ml-embedded form{ grid-template-columns:1fr }
+}
+
+.ml-embedded input[type="email"]{
+  background: rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:1rem;           /* ~ rounded-2xl */
+  padding:12px 16px;            /* ~ px-4 py-3 */
+  color:#fff;
+}
+.ml-embedded input::placeholder{ color:#c9c9c9; }
+
+.ml-embedded button[type="submit"]{
+  background:#fff;
+  color:#000;
+  border:0;
+  border-radius:1rem;           /* ~ rounded-2xl */
+  padding:12px 20px;            /* ~ px-5 py-3 */
+  font-size:.875rem;            /* ~ text-sm */
+  font-weight:600;              /* ~ font-semibold */
+  line-height:1;                /* ~ leading-none */
+  cursor:pointer;
+  transition:opacity .2s ease;
+}
+.ml-embedded button[type="submit"]:hover{ opacity:.9; }
+
+/* Treść po sukcesie */
+.ml-embedded .ml-form-successBody{
+  color:#a1a1aa; /* text-zinc-400 */
+  text-align:center;
+}
