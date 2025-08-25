@@ -134,3 +134,51 @@
   font-size: clamp(16px, 2.5vw, 22px);
   color: #d4d4d8;
 }
+
+/* === Newsletter card (MailerLite minimal embed) === */
+#newsletter .ml-embedded form{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;            /* gdy mało miejsca, złamie wiersz */
+}
+
+#newsletter .ml-embedded input[type="email"]{
+  flex:1 1 520px;            /* rośnie do szerokości, min. ~input */
+  max-width: 720px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background:#fff;
+  color:#000;
+  border: none;
+  outline: none;
+}
+
+#newsletter .ml-embedded button{
+  padding: 12px 18px;
+  border-radius: 12px;
+  background:#fff;
+  color:#000;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: .02em;
+  font-size: 18px;
+  border:none;
+  cursor:pointer;
+  transition: opacity .2s ease;
+}
+#newsletter .ml-embedded button:hover{ opacity:.9; }
+
+/* Widok podziękowania – ta sama typografia co reszta */
+#newsletter .ml-embedded h4{
+  font-family:"Bebas Neue",sans-serif !important;
+  font-weight:400 !important;
+  font-size:clamp(28px,5vw,46px);
+  color:#fff;
+  letter-spacing:.02em;
+}
+#newsletter .ml-embedded .ml-form-success p{
+  font-family:"Bebas Neue",sans-serif !important;
+  font-size:clamp(16px,2.5vw,22px);
+  color:#d4d4d8;
+}
