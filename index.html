@@ -31,10 +31,6 @@
 </head>
 <body class="bg-black text-zinc-100 font-sans antialiased">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body class="bg-black text-zinc-100 font-sans antialiased">
 
 <!-- NAV -->
 <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/50 border-b border-white/5">
@@ -115,8 +111,7 @@
         <a href="#tour" class="px-1 py-1 hover:text-white">Tour</a>
         <a href="#newsletter" class="px-1 py-1 hover:text-white">Newsletter</a>
         <a href="#contact" class="px-1 py-1 hover:text-white">Contact</a>
-        <a href="#contact" class="px-1 py-1 hover:text-white">EPK</a>
-        </a>
+        <a href="#epk" class="px-1 py-1 hover:text-white">EPK</a>
       </div>
     </div>
   </div>
@@ -132,7 +127,7 @@
 
       <!-- Zdjęcie tła -->
       <img
-        src="assets/photos/photo.pn"
+        src="assets/photos/photo.png"
         alt="Background photo"
         class="absolute inset-0 w-full h-full
                object-contain md:object-cover
@@ -328,7 +323,10 @@
       <p class="text-zinc-300 mb-6">Sign up for updates from LEAD</p>
       <form class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 max-w-xl mx-auto" onsubmit="return false">
         <input type="email" required placeholder="Your e‑mail" class="rounded-2xl bg-white/5 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/20">
-        <button type="submit" class="rounded-2xl bg-white text-black px-5 py-3 text-sm font-semibold hover:opacity-90 transition">Join</button>
+        <button type="submit"
+        class="rounded-2xl bg-white text-black px-5 py-3 text-sm font-normal leading-none subpixel-antialiased hover:opacity-90 transition">
+        Join
+</button>
       </form>
       
     </div>
@@ -386,12 +384,12 @@
         
         <!-- BUTTON modal -->
         <button type="button" id="open-epk-modal"
-          class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-semibold hover:opacity-90 transition">
-          Request EPK
+        class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-normal leading-none subpixel-antialiased hover:opacity-90 transition">
+         Request EPK
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 10v11H3V3h11"/>
-          </svg>
-        </button>
+         <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M21 10v11H3V3h11"/>
+  </svg>
+</button>
 
         <!-- Fallback: mailto (if JS not working) -->
         <noscript>
@@ -455,11 +453,11 @@
 
         <div class="flex items-center gap-3 pt-1">
           <button type="submit"
-                  class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-medium hover:opacity-90 transition">
-            Send request
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-            </svg>
+          class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-normal leading-none subpixel-antialiased hover:opacity-90 transition">
+          Send request
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+           <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
           </button>
           <span id="epk-status" class="text-sm text-zinc-400"></span>
         </div>
@@ -481,6 +479,6 @@
     </div>
   </footer>
 
-  <script src="./script.js"></script>
+  <script src="./script.js?v=2"></script>
 </body>
 </html>
