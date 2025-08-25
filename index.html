@@ -339,8 +339,20 @@
       </div>
 
       <div class="p-6">
-        <!-- Minimal embed (MailerLite) -->
-        <div class="ml-embedded" data-form="lV69g7"></div>
+        <form class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center"
+              action="#" method="post">
+          <input
+            type="email"
+            placeholder="Email"
+            class="flex-1 rounded-2xl bg-white text-black px-4 py-3
+                   placeholder-black/60 focus:outline-none focus:ring-2 focus:ring-white/20" />
+
+          <button type="submit"
+                  class="inline-flex items-center justify-center rounded-2xl bg-white text-black
+                         px-5 py-3 text-sm font-medium leading-none hover:opacity-90 transition">
+            JOIN
+          </button>
+        </form>
       </div>
     </div>
   </div>
