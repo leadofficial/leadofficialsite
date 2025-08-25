@@ -56,6 +56,24 @@
 
 <body class="bg-black text-zinc-100 font-sans antialiased">
 
+<!-- GLOBAL VIDEO BACKGROUND -->
+<video
+  id="site-video-bg"
+  class="site-video-bg"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+  poster="assets/backgrounds/smoke-poster.jpg"
+>
+  <!-- Najpierw WEBM (lepsza kompresja), potem MP4 jako fallback -->
+  <source src="assets/backgrounds/" type="video/webm">
+  <source src="assets/backgrounds/smoke.mp4"  type="video/mp4">
+</video>
+
+<!-- Subtelny overlay na całe tło (dla kontrastu i brandu) -->
+<div class="site-video-overlay" aria-hidden="true"></div>
 
 <!-- NAV -->
 <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/50 border-b border-white/5">

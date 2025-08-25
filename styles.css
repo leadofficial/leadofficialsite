@@ -194,3 +194,41 @@
   text-transform: none;
   letter-spacing: normal;
 }
+
+/* Wideo-tło na całe okno, pod całą stroną */
+.site-video-bg{
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;        /* wypełnia ekran bez pasów */
+  z-index: -2;              /* pod całą zawartością */
+  pointer-events: none;     /* nie blokuje klików */
+  filter: saturate(1.05) contrast(1.05);
+}
+
+/* Delikatny overlay żeby tekst był czytelny i kolory były „LEAD” */
+.site-video-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: -1;              /* nad wideo, pod treścią */
+  pointer-events: none;
+  /* cyjano-pomarańczowy blend + subtelne przyciemnienie */
+  background:
+    radial-gradient(1200px 800px at 15% 85%, rgba(0,255,255,0.18), transparent 60%),
+    radial-gradient(1200px 800px at 85% 15%, rgba(255,120,0,0.18), transparent 60%),
+    rgba(0,0,0,0.25);
+  mix-blend-mode: screen;   /* spróbuj też 'overlay' lub usuń, jeśli tekst ma być jaśniejszy */
+}
+
+/* Szacunek dla preferencji „reduce motion” */
+@media (prefers-reduced-motion: reduce){
+  .site-video-bg{ display:none; }
+  .site-video-overlay{
+    /* statyczne tło z Twojej dotychczasowej hero-bg jako fallback */
+    background:
+      radial-gradient(1200px 800px at 15% 85%, rgba(0,255,255,0.18), transparent 60%),
+      radial-gradient(1200px 800px at 85% 15%, rgba(255,120,0,0.18), transparent 60%),
+      rgba(0,0,0,0.45);
+  }
+}
