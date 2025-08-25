@@ -62,7 +62,7 @@ if (y) y.textContent = new Date().getFullYear();
     e.preventDefault();
 
     // 🔁 ZMIEŃ NA SWÓJ ENDPOINT FORMSPREE
-    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdklnvlp';
 
     const fd = new FormData(form);
     submitEl.disabled = true;
@@ -133,45 +133,61 @@ if (y) y.textContent = new Date().getFullYear();
   });
 })();
 
-// EPK form via AJAX (no redirect)
-(() => {
+// EPK form via AJAX (no redirect, no page reload)
+document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('epk-form');
   if (!form) return;
 
   const msg = document.getElementById('epk-msg');
-  const submitBtn = form.querySelector('[type="submit"]');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  // na wszelki wypadek usuń atrybuty, które wymuszałyby redirect
+  form.removeAttribute('target');
 
   form.addEventListener('submit', async (e) => {
+    // zablokuj W KAŻDYM PRZYPADKU default i inne handlery
     e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
 
-    submitBtn.disabled = true;
-    msg.classList.remove('hidden');
-    msg.classList.remove('text-red-400', 'text-green-400');
-    msg.textContent = 'Sending…';
+    // UI
+    if (submitBtn) submitBtn.disabled = true;
+    if (msg) {
+      msg.classList.remove('hidden', 'text-red-400', 'text-green-400');
+      msg.textContent = 'Sending…';
+    }
 
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch(form.getAttribute('action'), {
         method: 'POST',
         body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Accept': 'application/json' }, // to blokuje redirect po stronie Formspree
+        redirect: 'manual'                          // dodatkowy bezpiecznik
       });
 
       if (res.ok) {
-        msg.textContent = 'Thanks! I’ll email you the EPK shortly.';
-        msg.classList.add('text-green-400');
+        if (msg) {
+          msg.textContent = 'Thanks! I’ll email you the EPK shortly.';
+          msg.classList.add('text-green-400');
+        }
         form.reset();
-
-        // opcjonalnie: zamknij modal po 2 s
-        // setTimeout(() => document.getElementById('epk-modal-close')?.click(), 2000);
+        // np. zamknij modal po chwili:
+        // setTimeout(() => document.getElementById('epk-modal-close')?.click(), 1600);
       } else {
-        msg.textContent = 'Something went wrong. Please try again or email: contact@leadofficial.com';
-        msg.classList.add('text-red-400');
+        if (msg) {
+          msg.textContent = 'Something went wrong. Please try again or email: contact@leadofficial.com';
+          msg.classList.add('text-red-400');
+        }
       }
     } catch (err) {
-      msg.textContent = 'Network error. Please try again later.';
-      msg.classList.add('text-red-400');
+      if (msg) {
+        msg.textContent = 'Network error. Please try again later.';
+        msg.classList.add('text-red-400');
+      }
     } finally {
-      submitBtn.disabled = false;
+      if (submitBtn) submitBtn.disabled = false;
     }
-  });
-})();
+
+    return false;
+  }, { capture: true }); // capture pomaga, gdy inny listener jest w bubbling fazie
+});
