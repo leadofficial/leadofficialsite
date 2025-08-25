@@ -80,11 +80,11 @@
       if (res.ok) {
         form.reset();
         if (msg) {
-          msg.textContent = 'Thanks! I’ll email you the EPK shortly.';
+          msg.textContent = 'Thanks for reaching out. The EPK will be sent to your email address shortly.';
           msg.classList.add('text-green-400');
         }
         if (submitBtn) submitBtn.textContent = 'Sent ✓';
-        setTimeout(closeModal, 3000);
+        setTimeout(closeModal, 10000);
       } else {
         if (msg) {
           msg.textContent = 'Oops — something went wrong. Try again or email: contact@leadofficial.com';
