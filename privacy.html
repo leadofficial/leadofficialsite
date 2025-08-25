@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy — LEAD</title>
+  <meta name="description" content="Privacy Policy for leadofficial.com" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+</head>
+<body class="bg-black text-zinc-100 antialiased">
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/50 border-b border-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html#top" class="font-semibold">LEAD</a>
+      <a href="index.html#contact" class="text-sm hover:text-white">Back</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+    <header class="space-y-2">
+      <h1 class="text-3xl font-bold">Privacy Policy</h1>
+      <p class="text-zinc-400 text-sm">Last updated: <span id="pp-date"></span></p>
+    </header>
+
+    <section class="space-y-4 text-zinc-200">
+      <p>This Privacy Policy explains how we collect, use, and share information when you use <strong>leadofficial.com</strong> (the “Site”). “We”, “us”, or “our” refers to LEAD.</p>
+
+      <h2 class="text-xl font-semibold mt-6">1. What we collect</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li><strong>Newsletter sign‑ups</strong> (MailerLite): your email address and optional metadata needed to deliver emails and manage subscriptions.</li>
+        <li><strong>EPK requests</strong> (Formspree): your email and message so we can respond manually with EPK materials.</li>
+        <li><strong>Basic technical data</strong> (automatically): limited logs/aggregated analytics typical for hosting/CDN (no sale of personal data).</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mt-6">2. How we use data</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>To send updates and news you requested (newsletter).</li>
+        <li>To respond to EPK requests and press/booking inquiries.</li>
+        <li>To operate, secure, and improve the Site.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mt-6">3. Legal bases</h2>
+      <p>If you are in the EEA/UK, we rely on consent for marketing emails and legitimate interests to operate the Site and handle inquiries.</p>
+
+      <h2 class="text-xl font-semibold mt-6">4. Sharing</h2>
+      <p>We use trusted processors to run the Site and communications, including:</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li><strong>MailerLite</strong> (email newsletter delivery and subscription management).</li>
+        <li><strong>Formspree</strong> (contact/EPK form delivery).</li>
+        <li>Hosting/CDN and version control (e.g., GitHub Pages / Cloudflare / domain/DNS provider).</li>
+      </ul>
+      <p>We do not sell personal data.</p>
+
+      <h2 class="text-xl font-semibold mt-6">5. Cookies & tracking</h2>
+      <p>Our newsletter embed may set cookies necessary for subscription functionality. We do not use third‑party advertising cookies.</p>
+
+      <h2 class="text-xl font-semibold mt-6">6. Your choices</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>You can <strong>unsubscribe</strong> from newsletter emails anytime via the link inside each email.</li>
+        <li>You may request access, correction, deletion, or objection by emailing <a class="underline" href="mailto:contact@leadofficial.com">contact@leadofficial.com</a>.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mt-6">7. Data retention</h2>
+      <p>We keep data as long as necessary for the purposes above, or as required by law. You can request deletion.</p>
+
+      <h2 class="text-xl font-semibold mt-6">8. Children</h2>
+      <p>This Site is not directed to children under 13 (or under 16 in the EEA). We do not knowingly collect such data.</p>
+
+      <h2 class="text-xl font-semibold mt-6">9. International transfers</h2>
+      <p>We may process data outside your country. Where required, we use appropriate safeguards (e.g., SCCs provided by vendors).</p>
+
+      <h2 class="text-xl font-semibold mt-6">10. Contact</h2>
+      <p>Questions? <a class="underline" href="mailto:contact@leadofficial.com">contact@leadofficial.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="py-10 border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-zinc-400">
+      © <span id="year"></span> LEAD. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('pp-date').textContent = new Date().toISOString().slice(0,10);
+  </script>
+</body>
+</html>

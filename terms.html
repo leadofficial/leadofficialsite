@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terms of Use — LEAD</title>
+  <meta name="description" content="Terms of Use for leadofficial.com" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+</head>
+<body class="bg-black text-zinc-100 antialiased">
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/50 border-b border-white/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html#top" class="font-semibold">LEAD</a>
+      <a href="index.html#contact" class="text-sm hover:text-white">Back</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+    <header class="space-y-2">
+      <h1 class="text-3xl font-bold">Terms of Use</h1>
+      <p class="text-zinc-400 text-sm">Last updated: <span id="tos-date"></span></p>
+    </header>
+
+    <section class="space-y-4 text-zinc-200">
+      <p>These Terms govern your use of <strong>leadofficial.com</strong> (the “Site”). By using the Site, you agree to these Terms.</p>
+
+      <h2 class="text-xl font-semibold mt-6">1. Content & IP</h2>
+      <p>All content on the Site (including logos, graphics, text, audio/video, and images) is owned by LEAD or used with permission. You may not copy, distribute, or use it except as allowed by law or with our written consent.</p>
+
+      <h2 class="text-xl font-semibold mt-6">2. Acceptable use</h2>
+      <p>Do not misuse the Site (e.g., attempt to hack, scrape excessively, infringe IP, or violate applicable laws).</p>
+
+      <h2 class="text-xl font-semibold mt-6">3. Links & third parties</h2>
+      <p>The Site may link to third‑party services (e.g., Shopify, MailerLite, social media). We are not responsible for their content or policies.</p>
+
+      <h2 class="text-xl font-semibold mt-6">4. No warranties</h2>
+      <p>The Site is provided “as is” without warranties of any kind. Use at your own risk.</p>
+
+      <h2 class="text-xl font-semibold mt-6">5. Liability</h2>
+      <p>To the maximum extent permitted by law, we are not liable for any indirect or consequential damages arising from your use of the Site.</p>
+
+      <h2 class="text-xl font-semibold mt-6">6. Changes</h2>
+      <p>We may update these Terms from time to time by posting a new version on this page.</p>
+
+      <h2 class="text-xl font-semibold mt-6">7. Governing law</h2>
+      <p>These Terms are governed by the laws of your place of business/residence (fill in as appropriate) without regard to conflict‑of‑law rules.</p>
+
+      <h2 class="text-xl font-semibold mt-6">8. Contact</h2>
+      <p>Questions? <a class="underline" href="mailto:contact@leadofficial.com">contact@leadofficial.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="py-10 border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-zinc-400">
+      © <span id="year"></span> LEAD. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('tos-date').textContent = new Date().toISOString().slice(0,10);
+  </script>
+</body>
+</html>
