@@ -384,7 +384,7 @@
       <div class="p-6 space-y-3 text-zinc-300">
         <p>The official EPK: bio, promo photos, logos, technical info.</p>
         
-        <!-- PRZYCISK otwierający modal -->
+        <!-- BUTTON modal -->
         <button type="button" id="open-epk-modal"
           class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-semibold hover:opacity-90 transition">
           Request EPK
@@ -393,7 +393,7 @@
           </svg>
         </button>
 
-        <!-- Fallback: mailto (pokazany tylko gdy JS nie zadziała) -->
+        <!-- Fallback: mailto (if JS not working) -->
         <noscript>
           <a href="mailto:contact@leadofficial.com?subject=EPK%20Request&body=Hi!%20I'd%20love%20to%20receive%20your%20EPK.%20My%20email%3A%20"
              class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-semibold hover:opacity-90 transition">
@@ -444,10 +444,10 @@
           <textarea name="message" rows="3"
                     class="mt-1 w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3
                            focus:outline-none focus:ring-2 focus:ring-white/20"
-                    placeholder="Tell me what you need and where to send the EPK link."></textarea>
+                    placeholder="Write briefly who you are."></textarea>
         </label>
 
-        <!-- honeypot anty‑spam -->
+        <!-- honeypot anti‑spam -->
         <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
 
         <div class="flex items-center gap-3 pt-1">
