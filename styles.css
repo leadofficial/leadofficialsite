@@ -112,5 +112,25 @@
 .ml-embedded .ml-form-successBody h4,
 .ml-embedded .ml-form-successBody p{ color:#fff !important; }
 
-/* header ML, gdyby się pojawił */
+/* header ML */
 .ml-embedded .ml-form-embedHeader{ display:none !important; }
+
+/* MailerLite – unify success view typography */
+#newsletter .ml-embedded h4,
+#newsletter .ml-embedded .ml-form-success h4,
+#newsletter .ml-embedded .ml-form-successLayer h4,
+#newsletter .ml-embedded .ml-form-successContent h4 {
+  font-family: "Bebas Neue", sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em;
+  font-size: clamp(28px, 5vw, 46px);
+  color: #fff;
+}
+
+#newsletter .ml-embedded .ml-form-success p,
+#newsletter .ml-embedded .ml-form-successLayer p,
+#newsletter .ml-embedded .ml-form-successContent p {
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: clamp(16px, 2.5vw, 22px);
+  color: #d4d4d8;
+}
