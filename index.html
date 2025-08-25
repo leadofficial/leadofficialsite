@@ -333,7 +333,7 @@
   <section id="newsletter" class="py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="bg-black/60 border border-white/10 rounded-2xl">
-        <div class="p-6 border-b border-white/10">
+        <div class="p-6 border-b border-white/10 text-center">
           <h2 class="text-3xl font-normal subpixel-antialiased">Newsletter</h2>
           <p class="text-zinc-300">Sign up for updates from LEAD</p>
         </div>
@@ -388,13 +388,41 @@
   <!-- MailerLite webforms runtime + success hook -->
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js" type="text/javascript"></script>
   <script>
-    // This callback name follows ML's convention and will be called on success.
-    // If your form id changes in ML, rename the function to ml_webform_success_<id>.
-    function ml_webform_success_30040553() {
+    (function () {
       var form = document.getElementById('ml-lite');
-      var ok = document.getElementById('ml-success');
-      if (form && ok) { form.classList.add('hidden'); ok.classList.remove('hidden'); }
-    }
+      var ok   = document.getElementById('ml-success');
+      var iframe = document.querySelector('iframe[name="ml_iframe"]');
+      if (!form || !ok || !iframe) return;
+
+      var pending = false;
+
+      // When we submit, mark as pending so iframe load can toggle success
+      form.addEventListener('submit', function () {
+        pending = true;
+        // optional: disable the JOIN button while sending
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = true;
+      });
+
+      // Any load in the hidden iframe after a pending submit => show success
+      iframe.addEventListener('load', function () {
+        if (!pending) return;
+        pending = false;
+        form.classList.add('hidden');
+        ok.classList.remove('hidden');
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = false;
+        // Clear the field
+        var input = form.querySelector('input[name="fields[email]"]');
+        if (input) input.value = '';
+      });
+
+      // Also keep ML's legacy success hook (if their script calls it)
+      window.ml_webform_success_30040553 = function () {
+        form.classList.add('hidden');
+        ok.classList.remove('hidden');
+      };
+    })();
   </script>
 
  <!-- CONTACT + EPK -->
