@@ -452,59 +452,17 @@
         <!-- <input type="hidden" name="_next" value="https://leadofficial.com/thanks.html"> -->
 
         <div class="flex items-center gap-3 pt-1">
-          <button type="submit"
-          class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-normal leading-none subpixel-antialiased hover:opacity-90 transition">
-          Send request
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-           <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-          </svg>
-          </button>
-          <span id="epk-status" class="text-sm text-zinc-400"></span>
-        </div>
-        <!-- status -->
-        <p id="epk-msg" class="hidden text-sm pt-2"></p>
+  <button type="submit"
+          class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-medium hover:opacity-90 transition">
+    Send request
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </svg>
+  </button>
+  <span id="epk-status" class="text-sm text-zinc-400"></span>
+</div>
+<p id="epk-msg" class="hidden text-sm pt-2"></p>
       </form>
-      <script>
-(function () {
-  const form = document.getElementById('epk-form');
-  if (!form) { console.warn('EPK: form not found'); return; }
-
-  // preferuj #epk-msg; jeśli go brak, użyj #epk-status
-  const msg = document.getElementById('epk-msg') || document.getElementById('epk-status');
-  const submitBtn = form.querySelector('button[type="submit"]');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    if (submitBtn) submitBtn.disabled = true;
-    if (msg) {
-      msg.classList.remove('hidden', 'text-red-400', 'text-green-400');
-      msg.textContent = 'Sending…';
-    }
-
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' } // klucz: blokuje redirect po stronie Formspree
-      });
-
-      if (res.ok) {
-        form.reset();
-        if (msg) { msg.textContent = 'Thanks! I’ll email you shortly.'; msg.classList.add('text-green-400'); }
-        // zamknij modal po 1.5 s (opcjonalnie)
-        setTimeout(() => document.getElementById('close-epk-modal')?.click(), 1500);
-      } else {
-        if (msg) { msg.textContent = 'Something went wrong. Please try again.'; msg.classList.add('text-red-400'); }
-      }
-    } catch (err) {
-      if (msg) { msg.textContent = 'Network error. Please try again later.'; msg.classList.add('text-red-400'); }
-    } finally {
-      if (submitBtn) submitBtn.disabled = false;
-    }
-  });
-})();
-</script>
   </div>
 </div>
 
@@ -520,6 +478,6 @@
     </div>
   </footer>
 
-  <script src="./script.js?v=4"></script>
+  <script src="./script.js?v=3"></script>
 </body>
 </html>
