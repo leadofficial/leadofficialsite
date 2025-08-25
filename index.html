@@ -421,10 +421,9 @@
     </div>
 
     <form id="epk-form"
-      action="https://formspree.io/f/mdklnvlp"
-      method="POST"
-      class="space-y-3"
-      onsubmit="return false">
+            action="https://formspree.io/f/mdklnvlp"
+            method="POST"
+            class="space-y-3">
 
         <input type="hidden" name="form_name" value="EPK Request">
         <input type="hidden" name="source" value="leadofficial.com">
@@ -465,6 +464,47 @@
         <!-- status -->
         <p id="epk-msg" class="hidden text-sm pt-2"></p>
       </form>
+      <script>
+(function () {
+  const form = document.getElementById('epk-form');
+  if (!form) { console.warn('EPK: form not found'); return; }
+
+  // preferuj #epk-msg; jeśli go brak, użyj #epk-status
+  const msg = document.getElementById('epk-msg') || document.getElementById('epk-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (submitBtn) submitBtn.disabled = true;
+    if (msg) {
+      msg.classList.remove('hidden', 'text-red-400', 'text-green-400');
+      msg.textContent = 'Sending…';
+    }
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' } // klucz: blokuje redirect po stronie Formspree
+      });
+
+      if (res.ok) {
+        form.reset();
+        if (msg) { msg.textContent = 'Thanks! I’ll email you shortly.'; msg.classList.add('text-green-400'); }
+        // zamknij modal po 1.5 s (opcjonalnie)
+        setTimeout(() => document.getElementById('close-epk-modal')?.click(), 1500);
+      } else {
+        if (msg) { msg.textContent = 'Something went wrong. Please try again.'; msg.classList.add('text-red-400'); }
+      }
+    } catch (err) {
+      if (msg) { msg.textContent = 'Network error. Please try again later.'; msg.classList.add('text-red-400'); }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+})();
+</script>
   </div>
 </div>
 
@@ -480,6 +520,6 @@
     </div>
   </footer>
 
-  <script src="./script.js?v=3"></script>
+  <script src="./script.js?v=4"></script>
 </body>
 </html>

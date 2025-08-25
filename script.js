@@ -61,7 +61,7 @@ if (y) y.textContent = new Date().getFullYear();
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // 🔁 ZMIEŃ NA SWÓJ ENDPOINT FORMSPREE
+    // ENDPOINT FORMSPREE
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdklnvlp';
 
     const fd = new FormData(form);
