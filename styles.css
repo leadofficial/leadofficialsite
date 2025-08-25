@@ -62,3 +62,55 @@
   color:#a1a1aa; /* text-zinc-400 */
   text-align:center;
 }
+
+/* === MailerLite minimal embed — ciemny, kompaktowy === */
+.ml-embedded .ml-form-embedContainer,
+.ml-embedded .ml-form-embedWrapper,
+.ml-embedded .ml-form-embedBody,
+.ml-embedded .ml-form-successBody{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.ml-embedded .ml-form-embedWrapper.embedForm{
+  max-width: 560px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+/* chowamy ich nagłówek/tekst – u nas jest własny nad sekcją */
+.ml-embedded .ml-form-embedContent{ display: none !important; }
+/* odstępy */
+.ml-embedded .ml-form-embedBody{ padding: 0 !important; }
+
+/* pola */
+.ml-embedded input[type="email"],
+.ml-embedded input[type="text"],
+.ml-embedded textarea{
+  background: rgba(255,255,255,.06) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 16px !important;
+  padding: 12px 14px !important;
+  height: auto !important;
+}
+.ml-embedded input::placeholder{ color: rgba(255,255,255,.7) !important; }
+
+/* przycisk */
+.ml-embedded button.primary{
+  background: #fff !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 16px !important;
+  padding: 12px 16px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+}
+.ml-embedded button.primary:hover{ opacity: .9 !important; }
+
+/* sukces */
+.ml-embedded .ml-form-successBody h4,
+.ml-embedded .ml-form-successBody p{ color:#fff !important; }
+
+/* header ML, gdyby się pojawił */
+.ml-embedded .ml-form-embedHeader{ display:none !important; }
