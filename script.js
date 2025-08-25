@@ -96,3 +96,39 @@ if (y) y.textContent = new Date().getFullYear();
     }
   });
 })();
+
+// Formspree: wysyłka EPK bez przeładowania + status
+(function () {
+  const form   = document.getElementById('epk-form');
+  if (!form) return;
+  const status = document.getElementById('epk-status');
+
+  form.addEventListener('submit', async (e) => {
+    try {
+      e.preventDefault();
+      status.textContent = 'Sending...';
+
+      const data = new FormData(form);
+      const res  = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        status.textContent = 'Thanks! I’ll email you shortly.';
+        // (opcjonalnie) zamknij modal po 1.5s
+        setTimeout(() => {
+          status.textContent = '';
+          const closeBtn = document.getElementById('epk-modal-close');
+          if (closeBtn) closeBtn.click();
+        }, 1500);
+      } else {
+        status.textContent = 'Oops, something went wrong. Try again.';
+      }
+    } catch (err) {
+      status.textContent = 'Network error. Please try again.';
+    }
+  });
+})();

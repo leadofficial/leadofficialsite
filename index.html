@@ -422,35 +422,60 @@
       </button>
     </div>
 
-    <form id="epk-form" class="p-5 space-y-3">
-      <label class="block text-sm text-zinc-300">
-        Your email
-        <input type="email" name="email" required
-               class="mt-1 w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/20"
-               placeholder="you@example.com">
-      </label>
+    <form
+  id="epk-form"
+  action="https://formspree.io/f/mdklnvlp"   <!-- << Twój endpoint -->
+  method="POST"
+  class="space-y-3"
+>
+  <!-- Ukryte meta (przyda się w mailu od Formspree) -->
+  <input type="hidden" name="form_name" value="EPK Request">
+  <input type="hidden" name="source" value="leadofficial.com">
 
-      <label class="block text-sm text-zinc-300">
-        Optional message
-        <textarea name="message" rows="3"
-                  class="mt-1 w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/20"
-                  placeholder="Tell me briefly who you are / outlet, etc."></textarea>
-      </label>
+  <!-- Pole e-mail (wymagane) -->
+  <label class="block text-sm text-zinc-300">
+    Your email:
+    <input
+      type="email"
+      name="email"                      <!-- << ważne: name="email" -->
+      required
+      class="mt-1 w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3
+             focus:outline-none focus:ring-2 focus:ring-white/20"
+      placeholder="name@example.com"
+    >
+  </label>
 
-      <!-- Honeypot (anty-spam) -->
-      <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+  <!-- Wiadomość (opcjonalnie) -->
+  <label class="block text-sm text-zinc-300">
+    Your message (optional):
+    <textarea
+      name="message"
+      rows="3"
+      class="mt-1 w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3
+             focus:outline-none focus:ring-2 focus:ring-white/20"
+      placeholder="Tell me what you need and where to send the EPK link."
+    ></textarea>
+  </label>
 
-      <div class="flex items-center justify-between pt-2">
-        <button type="button" id="cancel-epk" class="px-4 py-2 rounded-2xl border border-white/10 hover:bg-white/5">Cancel</button>
-        <button type="submit" id="submit-epk"
-                class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-semibold hover:opacity-90 transition">
-          Send request
-        </button>
-      </div>
+  <!-- Honeypot anti‑spam -->
+  <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
 
-      <!-- komunikaty -->
-      <p id="epk-status" class="text-sm text-zinc-400 hidden"></p>
-    </form>
+  <!-- Thanks after submit -->
+  <input type="hidden" name="_next" value="https://leadofficial.com/thanks.html">
+
+  <div class="flex items-center gap-3 pt-1">
+    <button type="submit"
+      class="cta-plain inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm hover:opacity-90 transition">
+      Send request
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+      </svg>
+    </button>
+
+    <!-- Message -->
+    <span id="epk-status" class="text-sm text-zinc-400"></span>
+  </div>
+</form>
   </div>
 </div>
 
