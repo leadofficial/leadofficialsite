@@ -1,4 +1,4 @@
-// ========= Reveal + rok w stopce =========
+// ========= Reveal + footer year =========
 (() => {
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -30,7 +30,7 @@
   panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
 })();
 
-// ========= EPK Modal + Formspree (AJAX, bez redirectu) =========
+// ========= EPK Modal + Formspree (AJAX, no redirect) =========
 (() => {
   const openBtn  = document.getElementById('open-epk-modal');
   const modal    = document.getElementById('epk-modal');
@@ -53,7 +53,7 @@
   const msg = document.getElementById('epk-msg');                       // <p id="epk-msg">
   const submitBtn = form.querySelector('button[type="submit"]');        // przycisk w formularzu
 
-  // Bezpiecznik — usuń atrybuty, które mogłyby wymusić redirect
+  // Safety catch
   form.removeAttribute('target');
 
   form.addEventListener('submit', async (e) => {
@@ -73,7 +73,7 @@
       const res = await fetch(form.action, {
         method: form.method || 'POST',
         body: new FormData(form),
-        headers: { 'Accept': 'application/json' }, // Formspree wtedy NIE robi redirectu
+        headers: { 'Accept': 'application/json' }, // Formspree no redirect
         redirect: 'manual'
       });
 
@@ -84,7 +84,7 @@
           msg.classList.add('text-green-400');
         }
         if (submitBtn) submitBtn.textContent = 'Sent ✓';
-        setTimeout(closeModal, 1200);
+        setTimeout(closeModal, 3000);
       } else {
         if (msg) {
           msg.textContent = 'Oops — something went wrong. Try again or email: contact@leadofficial.com';
