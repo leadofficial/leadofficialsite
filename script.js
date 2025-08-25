@@ -132,3 +132,46 @@ if (y) y.textContent = new Date().getFullYear();
     }
   });
 })();
+
+// EPK form via AJAX (no redirect)
+(() => {
+  const form = document.getElementById('epk-form');
+  if (!form) return;
+
+  const msg = document.getElementById('epk-msg');
+  const submitBtn = form.querySelector('[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    msg.classList.remove('hidden');
+    msg.classList.remove('text-red-400', 'text-green-400');
+    msg.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        msg.textContent = 'Thanks! I’ll email you the EPK shortly.';
+        msg.classList.add('text-green-400');
+        form.reset();
+
+        // opcjonalnie: zamknij modal po 2 s
+        // setTimeout(() => document.getElementById('epk-modal-close')?.click(), 2000);
+      } else {
+        msg.textContent = 'Something went wrong. Please try again or email: contact@leadofficial.com';
+        msg.classList.add('text-red-400');
+      }
+    } catch (err) {
+      msg.textContent = 'Network error. Please try again later.';
+      msg.classList.add('text-red-400');
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+})();
