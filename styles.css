@@ -21,3 +21,11 @@
   height: 150;      /* wysokość logo */
   width: auto;        /* dopasuje szerokość automatycznie */
 }
+
+.cta-plain {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-weight: 600; /* albo 500, jak wolisz cieńsze */
+  letter-spacing: 0;
+}
