@@ -52,6 +52,12 @@
 
 <!-- Preload obrazu -->
   <link rel="preload" as="image" href="assets/backgrounds/smoke.jpg">
+  <style>
+    /* Newsletter placeholder in Bebas Neue */
+    #ml-lite input::placeholder {
+      font-family: 'Bebas Neue', sans-serif;
+    }
+  </style>
   
 </head>
 
@@ -169,8 +175,8 @@
 </header>
 
  <!-- HERO -->
+<!-- HERO -->
 <section id="top" class="relative overflow-hidden">
-  
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-10">
     <!-- Border -->
     <div class="relative w-full h-[58vw] min-h-[260px] max-h-[500px] rounded-2xl ring-1 ring-white/10 overflow-hidden">
@@ -181,11 +187,25 @@
         alt="Background photo"
         class="absolute inset-0 w-full h-full object-contain md:object-cover object-left md:object-center"
         onerror="this.style.display='none'" />
-        
-<img
-  src="assets/logo/logo_white.svg"
-  alt="LeadOfficial logo"
-  class="relative z-10 w-[40vw] sm:w-[48vw] md:w-[520px] max-w-full h-auto mt-0 ml-4" />
+
+      <!-- LOCAL SMOKE OVERLAY JUST FOR HERO (above logo) -->
+      <div class="pointer-events-none absolute inset-0 z-[8] opacity-10">
+        <video
+          class="w-full h-full object-cover"
+          src="assets/backgrounds/smoke.mp4"
+          poster="assets/backgrounds/smoke.jpg"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
+      </div>
+
+      <!-- LOGO (under the local smoke overlay) -->
+      <img
+        src="assets/logo/logo_white.svg"
+        alt="LeadOfficial logo"
+        class="relative z-[6] w-[40vw] sm:w-[48vw] md:w-[520px] max-w-full h-auto mt-0 ml-4" />
     </div>
   </div>
 </section>
@@ -550,14 +570,14 @@
     <form id="epk-form"
             action="https://formspree.io/f/mdklnvlp"
             method="POST"
-            class="space-y-3">
+            class="space-y-3 px-5 pt-4 pb-5">
 
         <input type="hidden" name="form_name" value="EPK Request">
         <input type="hidden" name="source" value="leadofficial.com">
         <input type="hidden" name="_subject" value="New EPK request">
 
         <label class="block text-sm text-zinc-300">
-          Your email:
+             Your email:
           <input type="email" name="email" required
                  class="mt-1 w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3
                         focus:outline-none focus:ring-2 focus:ring-white/20 input-plain"
@@ -565,7 +585,7 @@
         </label>
 
         <label class="block text-sm text-zinc-300">
-          Your message (optional):
+             Your message (optional):
           <textarea name="message" rows="3"
                     class="mt-1 w-full rounded-2xl bg-white/5 border border-white/10 px-4 py-3
                            focus:outline-none focus:ring-2 focus:ring-white/20 input-plain"
@@ -578,7 +598,7 @@
         <!-- (Opcjonalnie) -->
         <!-- <input type="hidden" name="_next" value="https://leadofficial.com/thanks.html"> -->
 
-        <div class="flex items-center gap-3 pt-1">
+        <div class="flex items-center justify-end gap-3 pt-1">
   <button type="submit"
           class="inline-flex items-center rounded-2xl bg-white text-black px-4 py-2 text-sm font-medium hover:opacity-90 transition">
     Send request
