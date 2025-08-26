@@ -211,18 +211,15 @@
 }
 
 /* Szacunek dla preferencji „reduce motion” */
+/* Szacunek dla preferencji „reduce motion” */
 @media (prefers-reduced-motion: reduce){
-  .site-video-bg{ display:none; }
-  .site-video-overlay{
-    background: rgba(0,0,0,0.45); /* bez żadnych gradientów brandowych */
+  .site-video-bg { display: none; }
+  .site-video-overlay {
+    background: rgba(0,0,0,0.45); /* bez brandowych gradientów */
   }
 }
 
-.site-video-bg{
-  background: url('assets/backgrounds/smoke.jpg') center/cover no-repeat #000;
-}
-
-/* Fallback: smoke.jpg jako natychmiastowe tło */
+/* Fallback: smoke.jpg jako natychmiastowe tło (jedyna reguła) */
 .site-video-bg {
-  background: url("assets/backgrounds/smoke.jpg") center/cover no-repeat black;
+  background: url("assets/backgrounds/smoke.jpg") center / cover no-repeat #000;
 }
