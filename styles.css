@@ -232,18 +232,3 @@
       rgba(0,0,0,0.45);
   }
 }
-
-/* Overlay poster + gradient (poster ładuje się od razu) */
-.site-video-overlay {
-  background-image:
-    radial-gradient(1200px 700px at 85% 25%, rgba(255,145,0,.25) 0%, transparent 60%),
-    radial-gradient(1000px 600px at 15% 20%, rgba(0,140,200,.25) 0%, transparent 55%),
-    url("assets/backgrounds/smoke-poster.jpg");
-  background-size: cover, cover, cover;
-  background-position: center, center, center;
-  background-repeat: no-repeat;
-}
-
-/* styles.css */
-.site-video-bg{opacity:0; transition:opacity .6s ease;}
-.site-video-bg.is-ready{opacity:1;}
