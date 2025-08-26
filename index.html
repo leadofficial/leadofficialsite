@@ -59,13 +59,6 @@
 <body class="bg-black text-zinc-100 font-sans antialiased">
 
 <!-- GLOBAL VIDEO BACKGROUND -->
- <img
-  id="site-video-fallback"
-  src="assets/backgrounds/smoke.jpg"
-  alt=""
-  aria-hidden="true"
-  style="position:fixed;inset:0;z-index:-3;width:100vw;height:100vh;object-fit:cover;background:#000;"
-/>
 <video
   id="site-video-bg"
   class="site-video-bg"
@@ -79,7 +72,7 @@
   <source src="assets/backgrounds/smoke.mov" type="video/mov">
 </video>
 
-<!-- Subtelny overlay na całe tło (dla kontrastu i brandu) -->
+<!-- Overlay -->
 <div class="site-video-overlay" aria-hidden="true"></div>
 
 <!-- NAV -->
@@ -171,10 +164,10 @@
 <section id="top" class="relative overflow-hidden">
   
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-10">
-    <!-- Ramka -->
+    <!-- Border -->
     <div class="relative w-full h-[58vw] min-h-[260px] max-h-[500px] rounded-2xl ring-1 ring-white/10 overflow-hidden">
 
-      <!-- Zdjęcie tła -->
+      <!-- BACKGROUND PHOTO -->
       <img
         src="assets/photos/photo.png"
         alt="Background photo"
@@ -574,7 +567,7 @@
         <!-- honeypot anti‑spam -->
         <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
 
-        <!-- (Opcjonalnie) strona podziękowania po zwykłym submit -->
+        <!-- (Opcjonalnie) -->
         <!-- <input type="hidden" name="_next" value="https://leadofficial.com/thanks.html"> -->
 
         <div class="flex items-center gap-3 pt-1">
