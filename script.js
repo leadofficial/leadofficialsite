@@ -49,7 +49,7 @@
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   document.addEventListener('keydown', (e)=> { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
 
-  // Status + przycisk submit
+  // Status + submit
   const msg = document.getElementById('epk-msg');                       // <p id="epk-msg">
   const submitBtn = form.querySelector('button[type="submit"]');        // przycisk w formularzu
 
