@@ -52,12 +52,20 @@
 
 <!-- Preload obrazu -->
   <link rel="preload" as="image" href="assets/backgrounds/smoke.jpg">
-  <link rel="stylesheet" href="styles.css?v=4">
   
 </head>
 
 <body class="bg-black text-zinc-100 font-sans antialiased">
 
+<!-- GLOBAL BACKGROUND FALLBACK IMAGE (shows immediately; video may overlay if supported) -->
+<img
+  id="site-video-fallback"
+  class="site-video-bg"
+  src="assets/backgrounds/smoke.jpg"
+  alt=""
+  decoding="async"
+  fetchpriority="high"
+/>
 <!-- GLOBAL VIDEO BACKGROUND -->
 <video
   id="site-video-bg"
@@ -69,7 +77,7 @@
   preload="auto"
   poster="assets/backgrounds/smoke.jpg?v=1"
 >
-  <source src="assets/backgrounds/smoke.mov" type="video/mov">
+  <source src="assets/backgrounds/smoke.mov" type="video/quicktime">
 </video>
 
 <!-- Overlay -->

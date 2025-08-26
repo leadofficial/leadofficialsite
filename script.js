@@ -9,6 +9,18 @@
 
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
+
+})();
+
+// ========= Hide fallback image when video is ready =========
+(() => {
+  const video = document.getElementById('site-video-bg');
+  const fallback = document.getElementById('site-video-fallback');
+  if (!video || !fallback) return;
+
+  video.addEventListener('canplay', () => {
+    fallback.style.display = 'none';
+  });
 })();
 
 // ========= Mobile menu toggle =========
