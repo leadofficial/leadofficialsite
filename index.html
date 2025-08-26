@@ -59,6 +59,13 @@
 <body class="bg-black text-zinc-100 font-sans antialiased">
 
 <!-- GLOBAL VIDEO BACKGROUND -->
+ <img
+  id="site-video-fallback"
+  src="assets/backgrounds/smoke.jpg"
+  alt=""
+  aria-hidden="true"
+  style="position:fixed;inset:0;z-index:-3;width:100vw;height:100vh;object-fit:cover;background:#000;"
+/>
 <video
   id="site-video-bg"
   class="site-video-bg"
@@ -69,9 +76,7 @@
   preload="auto"
   poster="assets/backgrounds/smoke.jpg?v=1"
 >
-  <!-- Najpierw WEBM (lepsza kompresja), potem MP4 jako fallback -->
   <source src="assets/backgrounds/smoke.mov" type="video/mov">
-  <source src="assets/backgrounds/smoke.mp4"  type="video/mp4">
 </video>
 
 <!-- Subtelny overlay na całe tło (dla kontrastu i brandu) -->

@@ -108,3 +108,11 @@
   });
 })();
 
+(() => {
+  const v = document.getElementById('site-video-bg');
+  const img = document.getElementById('site-video-fallback');
+  if (!v || !img) return;
+  const hideImg = () => { img.style.display = 'none'; };
+  v.addEventListener('loadeddata', hideImg, { once: true });
+  v.addEventListener('playing', hideImg, { once: true });
+})();
