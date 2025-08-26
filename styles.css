@@ -1,9 +1,5 @@
 /* Dodatkowe style */
-.hero-bg {
-  background-image:
-    radial-gradient(60% 40% at 50% -10%, rgba(56,189,248,0.25), transparent),
-    radial-gradient(40% 40% at 80% 20%, rgba(251,146,60,0.25), transparent);
-}
+
 /* 16:9 helper */
 .aspect-video { position: relative; width: 100%; }
 .aspect-video::before { content: ""; display: block; padding-top: 56.25%; }
