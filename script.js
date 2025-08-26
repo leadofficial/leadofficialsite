@@ -107,3 +107,17 @@
     }
   });
 })();
+
+// Autoplay po załadowaniu, żeby poster był widoczny od razu
+document.addEventListener('DOMContentLoaded', () => {
+  const v = document.getElementById('site-video-bg');
+  if(!v) return;
+
+  const tryPlay = () => v.play().catch(() => {/* iOS/low power – trudno, poster zostaje */});
+
+  // gdy tylko wideo ma dane do startu
+  v.addEventListener('canplay', tryPlay, { once: true });
+
+  // dla przeglądarek, które nie triggeryją 'canplay' wcześnie
+  if (v.readyState >= 2) tryPlay();
+});
