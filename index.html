@@ -37,7 +37,7 @@
 <meta name="theme-color" content="#000000">
 <meta name="msapplication-TileColor" content="#000000">
 
-  <link rel="stylesheet" href="./styles.css">
+  
 
   <!-- MailerLite Universal -->
   <script>
@@ -51,6 +51,9 @@
 
 <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+
+ <!-- Poster preload --> 
+  <link rel="preload" as="image" href="assets/backgrounds/smoke-poster.jpg" fetchpriority="high">
   
 </head>
 
@@ -59,18 +62,19 @@
 <!-- GLOBAL VIDEO BACKGROUND -->
 <video
   id="site-video-bg"
-  class="site-video-bg"
+  class="site-video-bg opacity-0 will-change-[opacity]"
   autoplay
   muted
   loop
   playsinline
   preload="auto"
-  poster="assets/backgrounds/smoke.jpg"
+  poster="assets/backgrounds/smoke-poster.jpg"
 >
-  <!-- Najpierw WEBM (lepsza kompresja), potem MP4 jako fallback -->
-  <source src="assets/backgrounds/smoke.mov" type="video/webm">
-  <source src="assets/backgrounds/smoke.mp4"  type="video/mp4">
+  <!-- First WEBM (best compression), then MP4 as fallback -->
+   <source src="assets/backgrounds/smoke.mov"  type="video/mov">
+  <source src="assets/backgrounds/smoke.webm" type="video/webm">
 </video>
+<script>(function(){var v=document.getElementById('site-video-bg');if(!v)return;function ready(){v.classList.add('is-ready');}v.addEventListener('loadeddata',ready,{once:true});})();</script>
 
 <!-- Subtelny overlay na całe tło (dla kontrastu i brandu) -->
 <div class="site-video-overlay" aria-hidden="true"></div>
