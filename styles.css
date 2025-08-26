@@ -221,3 +221,8 @@
 .site-video-bg{
   background: url('assets/backgrounds/smoke.jpg') center/cover no-repeat #000;
 }
+
+/* Fallback: smoke.jpg jako natychmiastowe tło */
+.site-video-bg {
+  background: url("assets/backgrounds/smoke.jpg") center/cover no-repeat black;
+}
