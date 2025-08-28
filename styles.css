@@ -7,7 +7,7 @@
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s, transform .6s; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* (opcjonalnie) kursory nad produktami */
+/* (optional - cursor over product */
 .product { cursor: default; }
 
 .hero-logo {
@@ -51,7 +51,7 @@
 }
 .ml-embedded button[type="submit"]:hover{ opacity:.9; }
 
-/* Treść po sukcesie */
+/* success text */
 .ml-embedded .ml-form-successBody{
   color:#a1a1aa; /* text-zinc-400 */
   text-align:center;
@@ -213,7 +213,7 @@
 @media (prefers-reduced-motion: reduce){
   .site-video-bg { display: none; }
   .site-video-overlay {
-    background: rgba(0,0,0,0.45); /* bez brandowych gradientów */
+    background: rgba(0,0,0,0.45); /* asdf */
   }
 }
 
